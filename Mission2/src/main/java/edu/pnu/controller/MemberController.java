@@ -1,5 +1,7 @@
 package edu.pnu.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +24,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member")
-	public MemberVO getMembers() {
-		System.out.println("getMembers");
+	public List<MemberVO> getMembers() {
 		return memberService.getMembers();
 	}
 	
@@ -33,18 +34,18 @@ public class MemberController {
 	}
 
 	@PostMapping("/member")
-	public MemberVO addMember(MemberVO memberVO) {
-		return memberService.addMember(memberVO);
+	public MemberVO addMember(MemberVO vo) {
+		return memberService.addMember(vo);
 	}
 	
 	@PutMapping("/member")
-	public MemberVO updateMembers(MemberVO memberVO) {
-		return memberService.updateMembers(memberVO);
+	public MemberVO updateMember(MemberVO vo) {
+		return memberService.updateMember(vo);
 	}
 	
 	@DeleteMapping("/member/{id}")
-	public MemberVO removeMembers(@PathVariable Integer id) {
-		return memberService.removeMembers(id);
+	public MemberVO removeMember(@PathVariable String id) {
+		return memberService.removeMember(id);
 	}
 	
 }
