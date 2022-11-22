@@ -1,9 +1,6 @@
 package edu.pnu.domain;
 
-import java.sql.PreparedStatement;
-
 import javax.servlet.ServletContext;
-
 import edu.pnu.common.JDBConnect;
 
 public class MemberDAO extends JDBConnect {
