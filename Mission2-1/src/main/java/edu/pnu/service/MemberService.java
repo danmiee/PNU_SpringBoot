@@ -2,6 +2,7 @@ package edu.pnu.service;
 
 import java.util.List;
 
+import edu.pnu.domain.LogDAO;
 import edu.pnu.domain.MemberDAO;
 import edu.pnu.domain.MemberDaoH2Impl;
 import edu.pnu.domain.MemberDaoListImpl;
@@ -12,6 +13,7 @@ public class MemberService {
 
 //	MemberDAO dao = new MemberDaoH2Impl();
 	MemberDAO dao = new MemberDaoListImpl();
+	LogDAO log = new LogDAO();
 	
 	// 모든 멤버 정보를 JSON 형태로 브라우저에 출력
 	public List<MemberVO> getMembers() {
