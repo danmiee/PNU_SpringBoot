@@ -35,24 +35,24 @@ public class MemberService {
 	}
 
 	// 추가하고자 하는 member 정보를 전달, 추가된 객체를 출력
-	public MemberVO addMember(MemberVO memberVO) {
+	public MemberVO addMember(MemberVO vo) {
 		// id 및 regidate 자동세팅
-		memberVO.setId(list.size());
-		memberVO.setRegidate(new Date());
+		vo.setId(list.size());
+		vo.setRegidate(new Date());
 		// list에 내용 추가
-		list.add(memberVO);
+		list.add(vo);
 		// 추가된 객체 출력
-		int id = memberVO.getId();
+		int id = vo.getId();
 		return list.get(id);
 	}
 
 	// 수정 대상 객체 정보를 전달, 수정된 객체를 출력
-	public MemberVO updateMembers(MemberVO memberVO) {
+	public MemberVO updateMembers(MemberVO vo) {
 		// regidate 자동세팅
-		memberVO.setRegidate(new Date());
+		vo.setRegidate(new Date());
 		// 수정 대상 객체 id를 기준으로 정보 수정
-		int id = memberVO.getId();
-		list.set(id, memberVO);
+		int id = vo.getId();
+		list.set(id, vo);
 		return list.get(id);
 	}
 
