@@ -44,7 +44,7 @@ public class MemberController {
 	}
 	
 	@DeleteMapping("/member/{id}")
-	public MemberVO removeMember(@PathVariable String id) {
+	public boolean removeMember(@PathVariable String id) {
 		return memberService.removeMember(id);
 	}
 	
