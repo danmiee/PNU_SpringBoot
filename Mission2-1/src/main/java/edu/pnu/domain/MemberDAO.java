@@ -7,5 +7,6 @@ public interface MemberDAO {
 	public MemberVO getMember(String uid);
 	public MemberVO addMember(MemberVO vo);
 	public MemberVO updateMember(MemberVO vo);
-	public MemberVO removeMember(String id);
+	public boolean removeMember(String id);
+	public String getSql();
 }
