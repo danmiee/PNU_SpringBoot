@@ -49,7 +49,7 @@ public class MemberDaoListImpl implements MemberDAO {
 	}
 
 	@Override
-	public boolean removeMember(String id) {
+	public MemberVO removeMember(String id) {
 		MemberVO deleted = new MemberVO();
 		for (int i = 0; i < list.size(); i++) {
 			if(list.get(i).equals(deleted)) {
@@ -57,12 +57,6 @@ public class MemberDaoListImpl implements MemberDAO {
 				list.remove(i);
 			}
 		}
-		return true;
-	}
-
-	@Override
-	public String getSql() {
-		// TODO Auto-generated method stub
-		return null;
+		return deleted;
 	}
 }
