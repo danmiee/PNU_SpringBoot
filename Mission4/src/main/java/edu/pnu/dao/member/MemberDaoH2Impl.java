@@ -94,15 +94,6 @@ public class MemberDaoH2Impl extends JDBConnect implements MemberDAO {
 	public MemberVO addMember(MemberVO vo) {
 		vo.setRegidate(new Date());
 		try {
-//			String query = "INSERT INTO member(id, pass, name) VALUES (?, ?, ?)"; // 쿼리문 템플릿
-//			ps = con.prepareStatement(query);
-//			ps.setString(1, vo.getId());
-//			ps.setString(2, vo.getPass());
-//			ps.setString(3, vo.getName());
-//			if(ps.executeUpdate()==0) {
-//				return null;
-//			};
-			
 			// log로 불러오기 위한 query string
 			sql = String.format("INSERT INTO member(id, pass, name) VALUES ('%s','%s','%s')",
 					vo.getId(), vo.getPass(), vo.getName());
@@ -128,13 +119,6 @@ public class MemberDaoH2Impl extends JDBConnect implements MemberDAO {
 	public MemberVO updateMember(MemberVO vo) {
 		vo.setRegidate(new Date());
 		try {
-//			String query = "UPDATE member set pass=?, name=? where id=?"; // 쿼리문 템플릿
-//			ps = con.prepareStatement(query);
-//			ps.setString(1, vo.getPass());
-//			ps.setString(2, vo.getName());
-//			ps.setString(3, vo.getId());
-//			ps.executeUpdate();
-			
 			// log로 불러오기 위한 query string
 			sql = String.format("UPDATE member set pass='%s', name='%s' where id='%s'",
 					vo.getPass(), vo.getName(), vo.getId());
@@ -153,12 +137,7 @@ public class MemberDaoH2Impl extends JDBConnect implements MemberDAO {
 	}
 
 	public boolean removeMember(String id) {
-//		String query = "DELETE FROM member where id=?"; /* SQL 문 */
 		try {
-//			ps = con.prepareCall(query);
-//			ps.setString(1, id);
-//			ps.executeUpdate();
-			
 			sql = String.format("DELETE FROM member where id='%s'", id);
 			st = con.createStatement();
 			if(st.executeUpdate(sql)!=0) {
