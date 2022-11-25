@@ -1,4 +1,4 @@
-package edu.pnu.domain;
+package edu.pnu.dao.log;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;

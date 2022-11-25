@@ -2,7 +2,7 @@ package edu.pnu.service;
 
 import java.util.List;
 
-import edu.pnu.domain.MemberDAO;
+import edu.pnu.dao.MemberDAO;
 import edu.pnu.domain.MemberVO;
 
 public class MemberService {

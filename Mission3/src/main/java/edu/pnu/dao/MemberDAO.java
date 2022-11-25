@@ -1,6 +1,8 @@
-package edu.pnu.domain;
+package edu.pnu.dao;
 
 import java.util.List;
+
+import edu.pnu.domain.MemberVO;
 
 public interface MemberDAO {
 	public List<MemberVO> getMembers();

@@ -1,17 +1,35 @@
-package edu.pnu.domain;
+package edu.pnu.dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
-public class MemberDaoListImpl implements MemberDAO {
+import edu.pnu.domain.MemberVO;
+
+public class MemberDaoFileImpl implements MemberDAO {
 
 	private List<MemberVO> list;
 	
-	public MemberDaoListImpl() {
+	public MemberDaoFileImpl() {
 		list = new ArrayList<>();
-		for (int i = 0; i < 20; i++) {
-			list.add(new MemberVO(""+i, "1234", "name" + i, new Date()));
+		// list.txt에서 읽어오기
+		try (BufferedReader br = new BufferedReader(new FileReader("list.txt"))) {
+			String str;
+			// readLine : 한줄씩 읽기
+			while((str = br.readLine())!=null) {
+				// 1줄 읽는동안 text 자르기
+				StringTokenizer st = new StringTokenizer(str, ",");
+				String s1 = st.nextToken();
+				String s2 = st.nextToken();
+				String s3 = st.nextToken();
+				// 읽은 내용 list에 memberVO로 넣어주기
+				list.add(new MemberVO(s1, s2, s3, new Date()));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

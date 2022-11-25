@@ -2,10 +2,10 @@ package edu.pnu.service;
 
 import java.util.List;
 
-import edu.pnu.domain.MemberDAO;
-import edu.pnu.domain.MemberDaoFileImpl;
-import edu.pnu.domain.MemberDaoH2Impl;
-import edu.pnu.domain.MemberDaoListImpl;
+import edu.pnu.dao.MemberDAO;
+import edu.pnu.dao.MemberDaoFileImpl;
+import edu.pnu.dao.MemberDaoH2Impl;
+import edu.pnu.dao.MemberDaoListImpl;
 import edu.pnu.domain.MemberVO;
 
 @SuppressWarnings("unused")

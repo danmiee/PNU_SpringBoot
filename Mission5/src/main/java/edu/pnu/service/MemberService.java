@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.pnu.domain.LogDAO;
-import edu.pnu.domain.MemberDAO;
+import edu.pnu.dao.log.LogDAO;
+import edu.pnu.dao.member.MemberDAO;
 import edu.pnu.domain.MemberVO;
 
 @Service

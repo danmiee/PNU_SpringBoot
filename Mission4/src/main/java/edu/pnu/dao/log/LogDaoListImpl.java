@@ -1,7 +1,5 @@
 package edu.pnu.dao.log;
 
-import java.sql.SQLException;
-
 public class LogDaoListImpl implements LogDAO {
 
 	@Override

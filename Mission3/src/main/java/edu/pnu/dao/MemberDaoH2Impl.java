@@ -1,4 +1,4 @@
-package edu.pnu.domain;
+package edu.pnu.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,19 +9,20 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import edu.pnu.common.JDBConnect;
+import edu.pnu.domain.MemberVO;
 
-public class MemberDAO extends JDBConnect {
+public class MemberDaoH2Impl extends JDBConnect implements MemberDAO {
 
 	// 명시한 데이터베이스로의 연결이 완료된 MemberDAO 객체를 생성합니다.
-	public MemberDAO() {
+	public MemberDaoH2Impl() {
 		super();
 	}
 
-	public MemberDAO(String drv, String url, String id, String pw) {
+	public MemberDaoH2Impl(String drv, String url, String id, String pw) {
 		super(drv, url, id, pw);
 	}
 
-	public MemberDAO(ServletContext application) {
+	public MemberDaoH2Impl(ServletContext application) {
 		super(application);
 	}
 
@@ -126,4 +127,5 @@ public class MemberDAO extends JDBConnect {
 		System.out.println("delete Success");
 		return null;
 	}
+
 }
