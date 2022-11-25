@@ -1,4 +1,4 @@
-package edu.pnu.domain;
+package edu.pnu.dao.member;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import edu.pnu.common.JDBConnect;
+import edu.pnu.domain.MemberVO;
 
 public class MemberDaoH2Impl extends JDBConnect implements MemberDAO {
 

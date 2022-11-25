@@ -3,8 +3,8 @@ package edu.pnu.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.pnu.domain.MemberDAO;
-import edu.pnu.domain.MemberDaoH2Impl;
+import edu.pnu.dao.member.MemberDAO;
+import edu.pnu.dao.member.MemberDaoH2Impl;
 import edu.pnu.domain.MemberVO;
 
 @SpringBootTest
