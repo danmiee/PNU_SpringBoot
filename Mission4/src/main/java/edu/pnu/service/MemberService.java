@@ -1,8 +1,8 @@
 package edu.pnu.service;
 
-import java.util.Date;
 import java.util.List;
 
+import edu.pnu.dao.log.LogDaoFileImpl;
 import edu.pnu.dao.log.LogDaoH2Impl;
 import edu.pnu.dao.member.MemberDAO;
 import edu.pnu.dao.member.MemberDaoH2Impl;
@@ -15,6 +15,7 @@ public class MemberService {
 	MemberDAO dao = new MemberDaoH2Impl();
 //	MemberDAO dao = new MemberDaoListImpl();
 	LogDaoH2Impl log = new LogDaoH2Impl();
+//	LogDaoFileImpl log = new LogDaoFileImpl();
 	
 	// 모든 멤버 정보를 JSON 형태로 브라우저에 출력
 	public List<MemberVO> getMembers() {
