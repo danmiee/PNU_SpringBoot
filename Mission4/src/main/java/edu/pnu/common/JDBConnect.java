@@ -22,7 +22,7 @@ public class JDBConnect {
 
             // DB에 연결
             	// 기존 사용했던 db와 다른 db를 사용했으므로 url 변경
-            String url = "jdbc:h2:tcp://localhost/~/test";
+            String url = "jdbc:h2:tcp://localhost/~/mission";
             String id = "sa";
             String pwd = ""; 
             con = DriverManager.getConnection(url, id, pwd); 
