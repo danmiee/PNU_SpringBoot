@@ -32,7 +32,7 @@ public class LogDaoH2Impl extends JDBConnect implements LogDAO {
 		// TODO Auto-generated method stub
 		try {
 			// 로그에 기록할 쿼리문 템플릿
-			String sql = "INSERT INTO log_table(method, query, exedate, success) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO dblog(method, query, exedate, success) VALUES (?, ?, ?, ?)";
 				// exedate를 날짜형식으로 받아오면 형변환 어려우므로 long타입의 시스템 현재 시각으로 가져오기
 			
 			PreparedStatement ps = con.prepareStatement(sql);
