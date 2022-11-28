@@ -132,7 +132,6 @@ public class MemberDao {
 		int id = getNextId();
 		
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 		
 		try {
 			String sql = "insert into member(id,name,pass,regidate) values (?,?,?,?)";
