@@ -2,6 +2,7 @@ package edu.pnu.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ public class MemberController {
 	private MemberService ms;
 
 	// 기본생성자 컨트롤러 실행 시 서비스 호출
+	@Autowired
 	public MemberController() {
 		ms = new MemberService();
 		System.out.println("MemberController() 생성자가 호출됨");
