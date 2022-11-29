@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import edu.pnu.dao.MemberDao;
 import edu.pnu.domain.MemberVO;
 
-@Service
 public class MemberService {
 
 	// H2 DB와 연결하며 DB와 연결을 담당하는 Dao에서 구현됨

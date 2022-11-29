@@ -10,7 +10,6 @@ import edu.pnu.dao.member.MemberDaoListImpl;
 import edu.pnu.dao.member.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
-@Service
 @SuppressWarnings("unused")
 public class MemberService {
 

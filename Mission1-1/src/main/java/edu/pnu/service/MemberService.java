@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import edu.pnu.domain.MemberVO;
 
-@Service
 public class MemberService {
 
 	// list는 모든 메소드에 대하여 계속 유지되어야 하므로 전역변수로 선언
