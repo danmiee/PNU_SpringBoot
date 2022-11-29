@@ -59,7 +59,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("getMembers Success");
+		System.out.println("getMembers: " + list);
 		return list;
 	}
 
@@ -94,7 +94,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 					e.printStackTrace();
 				}
 		}
-		System.out.println("getMember Success");
+		System.out.println("getMember: " + m);
 		return m;
 	}
 
@@ -110,9 +110,10 @@ public class MemberDaoH2Impl implements MemberInterface {
 			String sql = "select max(id) from member";
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
-			// max값 선택하고 다음행으로 이동? why?
+			// rs : max값 앞을 가리킴
+			// rs.next() : max값을 가리킴
 			rs.next();
-			// rs.getInt(1)? 무슨 뜻? 맥락상 최대값 의미하는 것이나 왜 이렇게 쓰는지 모르겠음
+			// rs 내 요소 1개 > rs의 첫번째 요소(max값)를 가져와서 +1
 			return rs.getInt(1) + 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -127,16 +128,16 @@ public class MemberDaoH2Impl implements MemberInterface {
 		return 1;
 	}
 	public MemberVO addMember(MemberVO vo) {
-
+		PreparedStatement ps = null;
+		
 		// id 중복방지를 위하여 기존에 저장된 아이디의 최대값 다음 수가 자동으로 매핑되게 함
 		int id = getNextId();
-		
-		PreparedStatement ps = null;
+		vo.setId(id);
 		
 		try {
 			String sql = "insert into member(id,name,pass,regidate) values (?,?,?,?)";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setInt(1, vo.getId());
 			ps.setString(2, vo.getName());
 			ps.setString(3, vo.getPass());
 			ps.setDate(4, new Date(System.currentTimeMillis()));
@@ -150,7 +151,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("addMember Success");
+		System.out.println("addMember: " + vo);
 		return vo;
 	}
 
@@ -173,7 +174,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("updateMember Success");
+		System.out.println("updateMember: " + vo);
 		return vo;
 	}
 
@@ -185,6 +186,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			if (ps.executeUpdate() == 1) {
+				System.out.println("deleteMember id: " + id);
 				return true;
 			}
 		} catch (SQLException e) {
@@ -196,8 +198,8 @@ public class MemberDaoH2Impl implements MemberInterface {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("No search id");
 		return false;
 	}
-	
 	
 }
