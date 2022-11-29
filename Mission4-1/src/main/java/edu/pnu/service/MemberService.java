@@ -1,13 +1,7 @@
 package edu.pnu.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-
 import edu.pnu.dao.log.LogDaoH2Impl;
 import edu.pnu.dao.log.LogDaoFileImpl;
 import edu.pnu.dao.log.LogInterface;
@@ -31,7 +25,6 @@ public class MemberService {
 //		log = new LogDaoFileImpl();
 	}
 
-	@GetMapping("/member")
 	public List<MemberVO> getMembers() {
 		// 자기자신을 받는 객체 생성
 		List<MemberVO> list = dao.getMembers();
@@ -44,7 +37,6 @@ public class MemberService {
 		return list;
 	}
 
-	@GetMapping("/member/{id}")
 	public MemberVO getMember(Integer id) {
 		MemberVO m = dao.getMember(id);
 		if(m!=null) {
@@ -55,7 +47,6 @@ public class MemberService {
 		return m;
 	}
 
-	@PostMapping("/member")
 	public MemberVO addMember(MemberVO vo) {
 		MemberVO m = dao.addMember(vo);
 		if(m!=null) {
@@ -66,7 +57,6 @@ public class MemberService {
 		return m;
 	}
 
-	@PutMapping("/member")
 	public MemberVO updateMember(MemberVO vo) {
 		MemberVO m = dao.updateMember(vo);
 		if(m!=null) {
@@ -77,7 +67,6 @@ public class MemberService {
 		return m;
 	}
 
-	@DeleteMapping("/member")
 	public boolean removeMember(Integer id) {
 		boolean m = dao.removeMember(id);
 		if(m==true) {
