@@ -54,7 +54,7 @@ public class JPAClient {
 		} finally {
 			em.close();
 		}
-		System.out.println("----------->> Done!!");
+		System.out.println("----------->> test Done");
 	}
 	
 	public static void main(String[] args) {
@@ -66,26 +66,40 @@ public class JPAClient {
 		// Transation 생성
 		EntityTransaction tx = em.getTransaction();
 
+		// 게시글 등록
+//		try {
+//			// Transaction 시작
+//			tx.begin();
+//
+//			for (int i = 0; i < 10; i++) {
+//				Board board = new Board();
+//				board.setTitle("JPA 제목" + i);
+//				board.setWriter("관리자" + i);
+//				board.setContent("JPA 내용" + i);
+//				board.setCreateDate(new Date());
+//				board.setCnt(0L);
+//				
+//				// 글 등록
+//				em.persist(board);
+//			}
+//
+//			// Transaction commit
+//			tx.commit();
+//			System.out.println("----------->> Commit");
+		
+		// 수정할 게시글 조회
 		try {
 			// Transaction 시작
 			tx.begin();
-
-			for (int i = 0; i < 10; i++) {
-				Board board = new Board();
-
-				board.setTitle("JPA 제목" + i);
-				board.setWriter("관리자" + i);
-				board.setContent("JPA 내용" + i);
-				board.setCreateDate(new Date());
-				board.setCnt(0L);
-				
-				// 글 등록
-				em.persist(board);
-			}
-
+			
+			// 수정할 게시글 조회
+			Board board = em.find(Board.class, 1L);
+			board.setTitle("검색한 게시글 제목 수정");
+			
 			// Transaction commit
 			tx.commit();
-			System.out.println("----------->> Commit");
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			// Transaction rollback
@@ -95,7 +109,7 @@ public class JPAClient {
 			em.close();
 		}
 		System.out.println("----------->> Done");
-		test(emf);
+//		test(emf);
 		emf.close();
 	}
 }
