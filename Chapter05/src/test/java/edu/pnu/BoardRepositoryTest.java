@@ -11,7 +11,7 @@ import edu.pnu.persistence.BoardRepository;
 
 @SuppressWarnings("unused")
 @SpringBootTest
-class Chapter05ApplicationTests {
+class BoardRepositoryTest {
 
 	@Autowired
 	private BoardRepository boardRepo;
@@ -50,7 +50,7 @@ class Chapter05ApplicationTests {
 //		boardRepo.save(board);
 
 		// Delete Test
-//		boardRepo.deleteById(1L);
+		boardRepo.deleteById(1L);
 
 	}
 
