@@ -23,8 +23,9 @@ public class MemberController {
 
 	// 기본생성자 컨트롤러 실행 시 서비스 호출
 	@Autowired
-	public MemberController() {
-		ms = new MemberService();
+	public MemberController(MemberService ms) {
+		// new 객체를 생성하게 되면 Autowired 적용안됨
+		this.ms = ms;
 		System.out.println("MemberController() 생성자가 호출됨");
 	}
 
