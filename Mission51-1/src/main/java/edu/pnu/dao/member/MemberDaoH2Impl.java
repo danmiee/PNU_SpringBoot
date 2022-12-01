@@ -30,10 +30,9 @@ public class MemberDaoH2Impl implements MemberInterface {
 		List<MemberVO> list = new ArrayList<>();
 		try {
 			// 여러 개의 값을 받을 수 있는 query() 사용
-			list = jdbcTemplate.query(sqlString,
-					// RowMapper를 오버라이딩 한 BeanPropertyRowMapper
-					// table 형태로 있는 데이터를 MemberVO.class 타입에 맞춰 형변환하여 반환 요청
-					new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
+			// RowMapper를 오버라이딩 한 BeanPropertyRowMapper
+			// table 형태로 있는 데이터를 MemberVO.class 타입에 맞춰 형변환하여 반환 요청
+			list = jdbcTemplate.query(sqlString, new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
