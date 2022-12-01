@@ -34,6 +34,15 @@ public class Board {
 		this.cnt = cnt;
 	}
 
+	public Board(String title, String writer, String content, Long cnt) {
+		this.seq = -1L;
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.createDate = new Date();
+		this.cnt = cnt;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content
