@@ -1,7 +1,12 @@
 package edu.pnu.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -14,6 +19,9 @@ public class Member {
 	private String name;
 	private String role;
 	
+	@OneToMany(mappedBy = "member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Board> boardList = new ArrayList<Board>();
+
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
@@ -63,4 +71,12 @@ public class Member {
 		this.role = role;
 	}
 	
+	public List<Board> getBoardList() {
+		return boardList;
+	}
+
+	public void setBoardList(List<Board> boardList) {
+		this.boardList = boardList;
+	}
+
 }

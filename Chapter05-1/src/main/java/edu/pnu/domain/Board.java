@@ -44,7 +44,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [seq=" + seq + ", title=" + title + ", content=" + content + ", createDate=" + createDate
-				+ ", cnt=" + cnt + ", member=" + member + "]";
+				+ ", cnt=" + cnt + "]";
 	}
 
 	public Long getSeq() {
@@ -93,6 +93,8 @@ public class Board {
 
 	public void setMember(Member member) {
 		this.member = member;
+		// member를 기준으로 한번에 저장할 수 있게 연결해줌
+		member.getBoardList().add(this);
 	}
 	
 }
