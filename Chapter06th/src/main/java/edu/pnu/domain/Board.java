@@ -20,16 +20,27 @@ public class Board {
 	
 	private String content;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
+	@Column(insertable = false, updatable = false, columnDefinition = "date default current_timestamp")
 	private Date createDate;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "number default 0")
+	@Column(insertable = true, updatable = false)
 	private Long cnt;
 	
 	public Board() {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 초기 더미데이터 생성을 위한 생성자
+	public Board(String title, String writer, String content, Long cnt) {
+		super();
+		this.seq = -1L;
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.createDate = new Date();
+		this.cnt = cnt;
+	}
+	
 	public Board(Long seq, String title, String writer, String content, Date createDate, Long cnt) {
 		super();
 		this.seq = seq;
