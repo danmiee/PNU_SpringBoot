@@ -28,7 +28,7 @@ public class MemberController {
 		return ms.getMembers();
 	}
 	
-	@GetMapping("/member/id")
+	@GetMapping("/member/{id}")
 	public MemberVO getMember(@PathVariable Integer id) {
 		System.out.println("getMember() 호출");
 		return ms.getMember(id);
