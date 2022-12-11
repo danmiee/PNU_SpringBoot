@@ -22,7 +22,7 @@ public class MemberController {
 		 System.out.println("MemberController - 생성자 호출");
 	}
 	
-	@GetMapping("/members")
+	@GetMapping("/member")
 	public List<MemberVO> getMembers(){
 		System.out.println("MemberController - getMembers()");
 		return ms.getMembers();
