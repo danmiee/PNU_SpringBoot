@@ -30,19 +30,9 @@ public class MemberDaoH2Impl implements MemberInterface {
 		}
 	}
 	
-	/*
-	 * MemberDaoH2Impl 로그기록 idea
-	 * 1. query문 분리
-	 *   - PreparedStatement > Statement(with String.format)
-	 * 2. Map함수 객체 생성 및 로그 기록할 내용 저장
-	 *   - "sql" : sql
-	 *   - "data" : query문 실행결과
-	 */
-	
 	public Map<String, Object> getMembers() {
 		Statement st = null;
 		ResultSet rs = null;
-		// log 기록을 위해 query문 변수로 별도 저장
 		String sql = "select * from member order by id";
 		try {
 			List <MemberVO> list = new ArrayList<>();
