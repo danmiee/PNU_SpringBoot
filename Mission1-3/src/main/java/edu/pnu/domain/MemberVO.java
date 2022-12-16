@@ -2,9 +2,6 @@ package edu.pnu.domain;
 
 import java.util.Date;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
 public class MemberVO {
 	private int id;
 	private String name;
