@@ -19,7 +19,7 @@ public class LogDaoH2Impl implements LogInterface {
 	}
 
 	@Override
-	public void addLog(String method, String sqlString, Boolean success) {
+	public void addLog(String method, String sqlString, boolean success) {
 		String query = "insert into dblog(method, sqlstring, success) values (?, ?, ?)";
 		PreparedStatement ps = null;
 		
