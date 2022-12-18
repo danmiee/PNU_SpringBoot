@@ -15,8 +15,10 @@ import edu.pnu.domain.MemberVO;
 public class MemberService {
 
 	/*
-	 * logDao 구현 idea 1. Map 객체(key:메소드명, value:결과값) 생성 2. 1의 객체에서 data 얻기 3. data가
-	 * null이 아닐 때 성공여부에 따라 로그 기록하기
+	 * logDao 구현 idea 
+	 * 1. Map 객체(key:메소드명, value:결과값) 생성 
+	 * 2. 1의 객체에서 data 얻기 
+	 * 3. data가 null이 아닐 때 성공여부에 따라 로그 기록하기
 	 */
 
 	private MemberInterface memberDao;
