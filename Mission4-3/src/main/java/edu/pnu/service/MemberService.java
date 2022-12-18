@@ -6,20 +6,20 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import edu.pnu.dao.log.LogDaoH2Impl;
+import edu.pnu.dao.log.LogDaoFileImpl;
 import edu.pnu.dao.log.LogInterface;
-import edu.pnu.dao.member.MemberDaoH2Impl;
+import edu.pnu.dao.member.MemberDaoListImpl;
 import edu.pnu.dao.member.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
 @Service
 public class MemberService {
 
-	MemberInterface memberDao = new MemberDaoH2Impl();
-//	MemberInterface memberDao = new MemberDaoListImpl();
+//	MemberInterface memberDao = new MemberDaoH2Impl();
+	MemberInterface memberDao = new MemberDaoListImpl();
 	
-	LogInterface logDao = new LogDaoH2Impl();
-//	LogInterface logDao = new LogDaoFileImpl();
+//	LogInterface logDao = new LogDaoH2Impl();
+	LogInterface logDao = new LogDaoFileImpl();
 	
 	@SuppressWarnings("unchecked")
 	public List<MemberVO> getMembers(){
