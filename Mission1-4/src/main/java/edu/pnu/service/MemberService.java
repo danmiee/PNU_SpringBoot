@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import edu.pnu.dao.MemberVO;
+import edu.pnu.domain.MemberVO;
 
 @Service
 public class MemberService {
