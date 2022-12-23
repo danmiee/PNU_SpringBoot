@@ -54,7 +54,7 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 
 	public Map<String, Object> updateMember(MemberVO vo) {
-		String sqlString = String.format("result of updateMembers('%d')",vo.getId());
+		String sqlString = String.format("result of updateMember('%d')",vo.getId());
 		for (MemberVO m : list) {
 			if (m.getId() == vo.getId()) {
 				m.setName(vo.getName());
@@ -70,7 +70,7 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 
 	public Map<String, Object> removeMember(Integer id) {
-		String sqlString = String.format("result of removeMembers('%d')",id);
+		String sqlString = String.format("result of removeMember('%d')",id);
 		for (int i = 0; i < list.size(); i++) {
 			if (i + 1 == id) {
 				MemberVO m = list.get(i);
