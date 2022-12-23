@@ -70,7 +70,7 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 
 	public Map<String, Object> removeMember(Integer id) {
-		String sqlString = String.format("result of getMembers('%d')",id);
+		String sqlString = String.format("result of removeMembers('%d')",id);
 		for (int i = 0; i < list.size(); i++) {
 			if (i + 1 == id) {
 				MemberVO m = list.get(i);
