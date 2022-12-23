@@ -15,7 +15,12 @@ import edu.pnu.service.MemberService;
 @RestController
 public class MemberController {
 
-	MemberService ms = new MemberService();
+	private MemberService ms;
+	
+	// 생성자 누락 주의
+	public MemberController(MemberService ms) {
+		this.ms = ms;
+	}
 	
 	@GetMapping("/member")
 	public List<MemberVO> getMembers(){

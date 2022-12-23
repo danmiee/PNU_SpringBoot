@@ -11,9 +11,10 @@ import edu.pnu.domain.MemberVO;
 //@Repository
 public class MemberDaoListImpl implements MemberInterface {
 	
-	List<MemberVO> list = new ArrayList<>();
+	List<MemberVO> list;
 	
 	public MemberDaoListImpl() {
+		list = new ArrayList<>();
 		for(int i=1; i<=10; i++) {
 			list.add(new MemberVO(i, "pass"+i, "name"+i, new Date()));
 		}
@@ -42,15 +43,15 @@ public class MemberDaoListImpl implements MemberInterface {
 	}
 	
 	public Map<String, Object> addMember(MemberVO vo) {
-		Map<String, Object> map = new HashMap<>();
-		int id = list.size();
+		int id = list.size()+1;
 		String sqlString = String.format("addMember('%d')", id);
-		map.put("sql", sqlString);
-		
+				
 		vo.setId(id);
 		vo.setRegidate(new Date());
 		list.add(vo);
-		
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("sql", sqlString);
 		map.put("data", vo);
 		
 		return map;
