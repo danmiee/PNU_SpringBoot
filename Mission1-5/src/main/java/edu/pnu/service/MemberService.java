@@ -1,0 +1,65 @@
+package edu.pnu.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import edu.pnu.domain.MemberVO;
+
+@Service
+public class MemberService {
+
+	List<MemberVO> list;
+
+	public MemberService() {
+		list = new ArrayList<>();
+		for (int i = 1; i <= 10; i++) {
+			list.add(new MemberVO(i, "name" + i, "pass" + i, new Date()));
+		}
+	}
+
+	public List<MemberVO> getMembers() {
+		return list;
+	}
+
+	public MemberVO getMember(int id) {
+		for (MemberVO m : list) {
+			if (m.getId()==id)	return m;
+		}
+		return null;
+	}
+
+	public int getNextId() {
+		return list.size()+1;
+	}
+	
+	public MemberVO addMember(MemberVO vo) {
+		vo.setId(getNextId());
+		vo.setRegidate(new Date());
+		list.add(vo);
+		return vo;
+	}
+
+	public MemberVO updateMember(MemberVO vo) {
+		for (MemberVO m : list) {
+			if (m.getId()==vo.getId()) {
+				m.setName(vo.getName());
+				m.setPass(vo.getPass());
+				return m;
+			}
+		}
+		return null;
+	}
+
+	public MemberVO removeMember(int id) {
+		for (MemberVO m : list) {
+			if (m.getId()==id) {
+				list.remove(id-1);
+				return m;
+			}
+		}
+		return null;
+	}
+}
