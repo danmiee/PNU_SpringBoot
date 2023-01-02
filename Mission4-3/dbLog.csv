@@ -1,0 +1,4 @@
+get,from getMembers(),true
+post,from addMember(11),true
+put,from updateMember(11),true
+delete,from removeMember(11),true

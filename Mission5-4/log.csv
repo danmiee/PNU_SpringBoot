@@ -1,0 +1,5 @@
+get,result of getMembers(),true
+get,result of getMember('3'),true
+get,result of addMember('6'),true
+get,result of updateMembers('6'),true
+get,result of getMembers('6'),true
