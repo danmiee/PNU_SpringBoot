@@ -3,28 +3,22 @@ package edu.pnu.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.pnu.dao.log.LogDaoFileImpl;
 import edu.pnu.dao.log.LogInterface;
-import edu.pnu.dao.member.MemberDaoListImpl;
 import edu.pnu.dao.member.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
 @Service
 public class MemberService {
 
+	@Autowired
 	MemberInterface memberDao;
+	@Autowired
 	LogInterface logDao;
-	Map<String, Object> map;
 	
-	public MemberService() {
-		System.out.println("Called MemberService");
-//		memberDao = new MemberDaoH2Impl();
-		memberDao = new MemberDaoListImpl();
-//		logDao = new LogDaoH2Impl();
-		logDao = new LogDaoFileImpl();
-	}
+	Map<String, Object> map;
 	
 	@SuppressWarnings("unchecked")
 	public List<MemberVO> getMembers() {
