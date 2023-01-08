@@ -2,6 +2,8 @@ package edu.pnu.dao.log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class LogDaoH2Impl implements LogInterface {
 
@@ -18,8 +20,23 @@ public class LogDaoH2Impl implements LogInterface {
 	
 	@Override
 	public void addlog(String method, String sqlstring, boolean success) {
-		
-		
-	}
 
+		PreparedStatement ps = null;
+		
+		try {
+			ps = con.prepareStatement("insert into dblog(method, sqlstring, success) values (?, ?, ?)");
+			ps.setString(1, method);
+			ps.setString(2, sqlstring);
+			ps.setBoolean(3, success);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+				try {
+					if (ps!=null)		ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+	}
 }
