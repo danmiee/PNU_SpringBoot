@@ -11,7 +11,7 @@ public class LogDaoFileImpl implements LogInterface {
 
 		try {
 			// 파일열기
-			File f = new File("log.csv");
+			File f = new File("log.txt");
 			// 파일쓰기(append모드 true)
 			FileWriter fw = new FileWriter(f, true);
 			// 기록내용
