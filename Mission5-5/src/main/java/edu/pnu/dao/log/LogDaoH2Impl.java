@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//@Repository
 public class LogDaoH2Impl implements LogInterface {
 
 	private Connection con = null;

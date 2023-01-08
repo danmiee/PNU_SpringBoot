@@ -11,13 +11,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
-
 import edu.pnu.domain.MemberVO;
 
 // query문이 정상 실행되지 않는 경우 로그 기록을 위한 처리
 // query문 작성 시 '' 주의
-@Repository
+
+//@Repository
 public class MemberDaoH2Impl implements MemberInterface {
 
 	private Connection con = null;

@@ -4,17 +4,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("LogDaoFileImpl")	// 객체명 기재
 public class LogDaoFileImpl implements LogInterface {
 
 	@Override
 	public void addlog(String method, String sqlstring, boolean success) {
 
 		try {
-			// 파일열기
+			// 쿼리문 내 콤마로 인해 csv파일로 저장 시 추가 작업 필요
 			File f = new File("log.txt");
-			// 파일쓰기(append모드 true)
 			FileWriter fw = new FileWriter(f, true);
-			// 기록내용
 			fw.write(method + "," + sqlstring + "," + success + "\n");
 			fw.close();
 		} catch (IOException e) {
