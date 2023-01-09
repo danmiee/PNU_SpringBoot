@@ -20,7 +20,8 @@ public class Member {
 	private Date regidate;
 	
 	public Member() {
-		// TODO Auto-generated constructor stub
+		// addMember 실행 시 regidate가 null로 저장되는 문제 해결 
+		regidate = new Date();
 	}
 	
 	// service에서 초기화할 때 간편하게 작성하기 위해 추가 생성	
